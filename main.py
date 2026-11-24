@@ -6,7 +6,7 @@ The line is the vacuum's own excuse for missing a spot.
 
 from pathlib import Path
 
-LINE = "My lidar mistook that dust bunny for a sleeping pet, so I tiptoed around it. I have manners."
+LINE = "I didn't miss that spot. My map lists it as a protected reserve for dust bunnies."
 
 
 def main() -> None:
