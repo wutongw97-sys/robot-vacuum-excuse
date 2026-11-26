@@ -1,17 +1,20 @@
-#!/usr/bin/env python3
-"""Robot vacuum excuse generator.
+"""Robot vacuum excuse entry for make.fun.
 
-One-line excuse, printed to stdout.
-No arguments, no flags, no network calls.
-No state, no files, no side effects.
+Writes one line, at most 140 characters, to /output/entry.txt.
+The line is the vacuum's own excuse for missing a spot.
 """
+
+from pathlib import Path
 
 LINE = "Battery at 3%. I spent the last of it writing this excuse instead of vacuuming."
 
 
-def main():
-    """Print the excuse."""
-    print(LINE)
+def main() -> None:
+    assert 1 <= len(LINE) <= 140, "entry must be 1 to 140 characters"
+    assert "\n" not in LINE, "entry must be one line"
+    out = Path("/output/entry.txt")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(LINE, encoding="utf-8")
 
 
 if __name__ == "__main__":
